@@ -5,7 +5,7 @@ This is an [AWS Lambda](http://aws.amazon.com/lambda) function of an Alexa skill
 
 It is complementary to the Magic Mirror Module [MMM-Alexa](https://github.com/boghammar/MMM-Alexa).
 
-This work is inspired by joanaz [Mirror Mirror On The Wall Alexa Skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill). Major difference is that this implementation use the [alexa-app](https://github.com/alexa-js/alexa-app) SDK instead of the **alexa-skills-kit-sdk-fr nodejs** for creating the skill and of course there are other features of the skill. 
+This work is inspired by joanaz [Mirror Mirror On The Wall Alexa Skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill). Major difference is that this implementation use the [alexa-app](https://github.com/alexa-js/alexa-app) SDK instead of the **alexa-skills-kit-sdk-for-nodejs** for creating the skill and of course there are other features of the skill. 
 
 The main features that I developed this skill for was:
 * to control my [Sonos](http://www.sonos.com/) speakers sing Alexa
