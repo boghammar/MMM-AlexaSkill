@@ -4,6 +4,9 @@
  * 
  */
 const Alexa = require('alexa-app');
+const mirror = require('./iotgateway');
+
+mirror.setup();
 
 // Allow this module to be reloaded by hotswap when changed
 module.change_code = 1;
@@ -24,10 +27,12 @@ app.intent('PlaySonos',
         'slots': {'WHAT': 'LITERAL', 'WHERE': 'LITERAL'},
         'utterances': ['play {tunein|WHAT} in {office|kitchen|WHERE}', 'start {office|kitchen|WHERE}'] 
     }, function(req, res) {
-        if (req.slot('WHAT') === undefined || req.slot('WHAT') == '') {
-            res.say('Ok. Resuming in ' + req.slot('WHERE') + '.');
+        var what = req.slot('WHAT');
+        var where = req.slot('WHERE');
+        if (what === undefined || what == '') {
+            res.say('Ok. Resuming in ' + where + '.');
         } else {
-            res.say('Ok. Playing ' + req.slot('WHAT') + ' in ' + req.slot('WHERE') + '.');
+            res.say('Ok. Playing ' + what + ' in ' + where + '.');
         }
     }
 );
