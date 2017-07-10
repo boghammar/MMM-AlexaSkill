@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/boghammar/MMM-AlexaSkill#readme",
   "dependencies": {
-    "alexa-app": "^4.0.1",
+    "alexa-sdk": "^1.0.11",
     "aws-iot-device-sdk": "^2.0.0",
     "node-zip": "^1.1.1"
   }
