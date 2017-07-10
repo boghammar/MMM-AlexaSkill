@@ -36,8 +36,11 @@ app.setup = function (cfg) {
 // ----- Handle a play request from Alexa
 app.play = function (what, where, callback) {
     var data = {
-        'what': what,
-        'where': where
+        'module': 'SonosPlay',
+        'body': {
+            'what': what,
+            'where': where
+        }
     };
     
     app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {

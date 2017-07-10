@@ -12,7 +12,7 @@ module.change_code = 1;
 // ------------ Define an alexa-app
 var app = new Alexa.app('magicmirror')
 app.id = require('./package.json').alexa.applicationId;
-var mirrorConfig = require('./deployConfig'); // This file is put here by the prepareDeploy.js utility
+var mirrorConfig = require('./certs/deployConfig'); // This file is put here by the prepareDeploy.js utility
 
 // ------------ Configure the IOT device
 mirror.setup(mirrorConfig);
@@ -31,11 +31,13 @@ app.intent('PlaySonos',
     }, function(req, res) {
         var what = req.slot('WHAT');
         var where = req.slot('WHERE');
-        if (what === undefined || what == '') {
-            res.say('Ok. Resuming in ' + where + '.');
-        } else {
-            res.say('Ok. Playing ' + what + ' in ' + where + '.');
-        }
+        mirror.play(what, where, function() {
+            if (what === undefined || what == '') {
+                res.say('Ok. Resuming in ' + where + '.');
+            } else {
+                res.say('Ok. Playing ' + what + ' in ' + where + '.');
+            }
+        });
     }
 );
 
