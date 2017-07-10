@@ -15,6 +15,7 @@ app.id = require('./package.json').alexa.applicationId;
 var mirrorConfig = require('./certs/deployConfig'); // This file is put here by the prepareDeploy.js utility
 
 // ------------ Configure the IOT device
+console.log("Calling mirror.setup()");
 mirror.setup(mirrorConfig);
 
 // ------------ Define the launch request
@@ -31,13 +32,22 @@ app.intent('PlaySonos',
     }, function(req, res) {
         var what = req.slot('WHAT');
         var where = req.slot('WHERE');
-        mirror.play(what, where, function() {
-            if (what === undefined || what == '') {
+        console.log("index.js: Got PlaySonos What="+what + " Where="+where);
+        mirror.play(what, where, function(err) {
+            if (err) {
+                console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+                res.say('Could not comply with that. Sorry.');
+                return;
+            }
+            console.log("index.js: Have sent the request PlaySonos What="+what + " Where="+where);
+            res.say('Ok. Done and done.');
+            /*if (what === undefined || what == '') {
                 res.say('Ok. Resuming in ' + where + '.');
             } else {
                 res.say('Ok. Playing ' + what + ' in ' + where + '.');
-            }
+            }*/
         });
+        //res.say('Ok. Playing ' + what + ' in ' + where + '.');
     }
 );
 

@@ -19,7 +19,7 @@
   "license": "MIT",
   "alexa": {
     "applicationId": "amzn1.ask.skill.b85685a4-487e-4400-ba82-5691285d73c0",
-    "configPath": "C:/_data/dev/certs"
+    "configPath": "C:/_data/anders/dev/certs"
   },
   "bugs": {
     "url": "https://github.com/boghammar/MMM-AlexaSkill/issues"

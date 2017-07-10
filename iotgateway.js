@@ -12,22 +12,25 @@ app.TOPIC_PLAY = "MagicMirror:Play";
 app.setup = function (cfg) {
     try {
         var opt = {
-            keyPath: __dirname + "/" + cfg.certID + "-MagicMirror.private.key",
-            certPath: __dirname + "/" + cfg.certID + "-MagicMirror.cert.pem",
-            caPath: __dirname + "/" + cfg.certID + "-root-CA.crt",
+            keyPath: __dirname + "/certs/" + cfg.certID + "-private.pem.key",
+            certPath: __dirname + "/certs/" + cfg.certID + "-certificate.pem.crt",
+            caPath: __dirname + "/certs/root-CA.crt",
             clientId: "MirrorMirror" + (new Date().getTime()),
             region: "us-east-1",
             host: cfg.IOTEndpoint
         }
+        console.log("Creating device");
         app.device = awsIot.device(opt);
 
         app.device.on('connect', function () {
-            console.log('connect');
+            console.log('IOT Device connected to '+ opt.host);
         });
 
         app.device.on('message', function (topic, payload) {
-            console.log('message', topic, payload.toString());
+            console.log('message: ', topic, payload.toString());
         });
+        
+        console.log("AlexaComms - Created IOT device: " + opt.host);
     } catch (err) {
         console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
     }
@@ -35,6 +38,7 @@ app.setup = function (cfg) {
 
 // ----- Handle a play request from Alexa
 app.play = function (what, where, callback) {
+    console.log("iotgateway: Got PlaySonos What="+what + " Where="+where);
     var data = {
         'module': 'SonosPlay',
         'body': {
@@ -42,11 +46,15 @@ app.play = function (what, where, callback) {
             'where': where
         }
     };
-    
-    app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {
-        console.log('Published topic: '+ app.TOPIC_PLAY + ' Data: '+ JSON.stringify(data));
-        callback();
-    });
+    console.log("iotgateway: publish " + app.TOPIC_PLAY+ " Data="+JSON.stringify(data));
+    try {
+        app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {
+            console.log('Published topic: '+ app.TOPIC_PLAY + ' Data: '+ JSON.stringify(data));
+            callback();
+        });
+    } catch (err) {
+        console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+    }
 }
 
 module.exports = app;
