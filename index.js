@@ -27,7 +27,7 @@ var languageStrings = {
             "WELCOME_CARD": "Hello",
             "HELP_MESSAGE": "Hello my Queen, I can show you text and images, if you give me commands like 'say you are the fairest of them all' or 'find Snow White'. I can also open or close a magic mirror module, if you say commands like 'open compliments', or 'close weather forecast'. What can I do for you, my Queen?",
             "HELP_CARD": "Help",
-            "SHOW_TEXT": "Yes, my Queen. %s.",
+            "SHOW_TEXT": "Yes, my Queen. %s",
             "SHOW_TEXT_ERR": "Sorry, my Queen, I didn't get that. You can give me commands like 'display text of hello', or 'say you are the fairest of them all'. What can I do for you, my Queen?",
             "SHOW_TEXT_CARD": "Display Text",
             "STOP_MESSAGE": "See you next time, my Queen!",
