@@ -6,14 +6,16 @@
 const Alexa = require('alexa-app');
 const mirror = require('./iotgateway');
 
-mirror.setup();
-
 // Allow this module to be reloaded by hotswap when changed
 module.change_code = 1;
 
 // ------------ Define an alexa-app
 var app = new Alexa.app('magicmirror')
 app.id = require('./package.json').alexa.applicationId;
+var mirrorConfig = require('./deployConfig'); // This file is put here by the prepareDeploy.js utility
+
+// ------------ Configure the IOT device
+mirror.setup(mirrorConfig);
 
 // ------------ Define the launch request
 app.launch(function(req, res) {

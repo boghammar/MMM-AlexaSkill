@@ -1,31 +1,32 @@
 {
-  "name": "mmmalexaskill",
-  "version": "1.0.0",
-  "description": "An Alexa skill using alexa-app and AWS IOT to control MagicMirror and other stuff :)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/boghammar/MMM-AlexaSkill.git"
-  },
-  "keywords": [
-    "alexa",
-    "aws",
-    "magicmirror"
-  ],
-  "author": "anders@boghammar.com",
-  "license": "MIT",
-  "alexa": {
-    "applicationId": "amzn1.ask.skill.b85685a4-487e-4400-ba82-5691285d73c0"
-  },
-  "bugs": {
-    "url": "https://github.com/boghammar/MMM-AlexaSkill/issues"
-  },
-  "homepage": "https://github.com/boghammar/MMM-AlexaSkill#readme",
-  "dependencies": {
-    "alexa-app": "^4.0.1",
-    "aws-iot-device-sdk": "^2.0.0"
-  }
+    "name": "mmmalexaskill",
+    "version": "1.0.0",
+    "description": "An Alexa skill using alexa-app and AWS IOT to control MagicMirror and other stuff :)",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/boghammar/MMM-AlexaSkill.git"
+    },
+    "keywords": [
+        "alexa",
+        "aws",
+        "magicmirror"
+    ],
+    "author": "anders@boghammar.com",
+    "license": "MIT",
+    "alexa": {
+        "applicationId": "amzn1.ask.skill.b85685a4-487e-4400-ba82-5691285d73c0",
+        "configPath": "C:/_data/dev/certs"
+    },
+    "bugs": {
+        "url": "https://github.com/boghammar/MMM-AlexaSkill/issues"
+    },
+    "homepage": "https://github.com/boghammar/MMM-AlexaSkill#readme",
+    "dependencies": {
+        "alexa-app": "^4.0.1",
+        "aws-iot-device-sdk": "^2.0.0"
+    }
 }

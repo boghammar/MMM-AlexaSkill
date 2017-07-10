@@ -9,15 +9,17 @@ var app = {};
 app.TOPIC_PLAY = "MagicMirror:Play";
 
 // ------- Setup the IOT Gateway
-app.setup = function () {
+app.setup = function (cfg) {
     try {
-        app.device = awsIot.device({
-            keyPath: __dirname + "/certs/MagicMirror.private.key",
-            certPath: __dirname + "/certs/MagicMirror.cert.pem",
-            caPath: __dirname + "/certs/root-CA.crt",
+        var opt = {
+            keyPath: __dirname + "/" + cfg.certID + "-MagicMirror.private.key",
+            certPath: __dirname + "/" + cfg.certID + "-MagicMirror.cert.pem",
+            caPath: __dirname + "/" + cfg.certID + "-root-CA.crt",
             clientId: "MirrorMirror" + (new Date().getTime()),
             region: "us-east-1",
-        });
+            host: cfg.IOTEndpoint
+        }
+        app.device = awsIot.device(opt);
 
         app.device.on('connect', function () {
             console.log('connect');

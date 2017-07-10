@@ -21,3 +21,42 @@ The main features that I developed this skill for was:
 ## Configure your skill
 
 ## Deploy your code to AWS Lambda
+Since this skill relies on AWS IOT to communicate with the Magic Mirror you need to deploy your certificates along with the code when deploying to AWS Lambda. For that purpose use the utility `prepareDeploy.js` to pack the correct files for deployment. What this utility does is
+
+1. Find out the secret directory by reading the Alexa.configPath in the package.js file.
+2. Reads the `Alexa.configPath+/deployConfig.js` file that contains the following parameters
+```javascript
+// This is the deploy configuration for MMM-AlexaSkill
+var cfg = {
+	IOTEndpoint: 'apt******.iot.us-east-1.amazonaws.com',
+	certPath: 'C:/_data/dev/certs', // Where are the certificates
+	certID: '16cc68c66f'            // Whats the prefix of the certificate files
+}
+module.exports = cfg;
+```
+3. Copies the certificates files to the directory `./certs` within your source tree
+4. Copies the deployConfig file to the directory `./certs` within your source tree
+5. Zips all necessary source files (including the `node_modules` directory) along with the `./certs` directory.
+
+The resulting zip file can then be uploaded using the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home).
+
+## Message format 
+The messages sent from the skill to the IOT device have the following format:
+```json
+{
+    "module": "nameof module",
+    "body" {
+        // Module specific module data
+    }
+}
+```
+for instance the SonosPlay module takes this message
+```json
+{
+    "module": "SonosPlay",
+    "body" {
+        "what": "beatles",
+        "where": "kitchen"
+    }
+}
+```
