@@ -45,7 +45,7 @@ The messages sent from the skill to the IOT device have the following format:
 ```json
 {
     "module": "nameof module",
-    "body" {
+    "body": {
         // Module specific module data
     }
 }
@@ -54,7 +54,7 @@ for instance the SonosPlay module takes this message
 ```json
 {
     "module": "SonosPlay",
-    "body" {
+    "body": {
         "what": "beatles",
         "where": "kitchen"
     }
