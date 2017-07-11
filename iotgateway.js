@@ -37,12 +37,13 @@ app.setup = function (cfg) {
 }
 
 // ----- Handle a play request from Alexa
-app.play = function (what, where, callback) {
-    console.log("iotgateway: Got PlaySonos What="+what + " Where="+where);
+app.play = function (what, from, where, callback) {
+    console.log("iotgateway: Got PlaySonos What="+what + " From="+from + " Where="+where);
     var data = {
         'module': 'SonosPlay',
         'body': {
             'what': what,
+            'from': from,
             'where': where
         }
     };

@@ -1,0 +1,52 @@
+PlaySonos to play {a song|WHAT} from {spotify|FROM} in {office|WHERE}
+PlaySonos play {a song|WHAT} from {spotify|FROM} in {office|WHERE}
+PlaySonos to play {beatles|WHAT} from {spotify|FROM} in {office|WHERE}
+PlaySonos play {beatles|WHAT} from {spotify|FROM} in {office|WHERE}
+PlaySonos to play {a song|WHAT} from {tunein|FROM} in {office|WHERE}
+PlaySonos play {a song|WHAT} from {tunein|FROM} in {office|WHERE}
+PlaySonos to play {beatles|WHAT} from {tunein|FROM} in {office|WHERE}
+PlaySonos play {beatles|WHAT} from {tunein|FROM} in {office|WHERE}
+PlaySonos to play {a song|WHAT} from {sonos|FROM} in {office|WHERE}
+PlaySonos play {a song|WHAT} from {sonos|FROM} in {office|WHERE}
+PlaySonos to play {beatles|WHAT} from {sonos|FROM} in {office|WHERE}
+PlaySonos play {beatles|WHAT} from {sonos|FROM} in {office|WHERE}
+PlaySonos to play {a song|WHAT} from {spotify|FROM} in {kitchen|WHERE}
+PlaySonos play {a song|WHAT} from {spotify|FROM} in {kitchen|WHERE}
+PlaySonos to play {beatles|WHAT} from {spotify|FROM} in {kitchen|WHERE}
+PlaySonos play {beatles|WHAT} from {spotify|FROM} in {kitchen|WHERE}
+PlaySonos to play {a song|WHAT} from {tunein|FROM} in {kitchen|WHERE}
+PlaySonos play {a song|WHAT} from {tunein|FROM} in {kitchen|WHERE}
+PlaySonos to play {beatles|WHAT} from {tunein|FROM} in {kitchen|WHERE}
+PlaySonos play {beatles|WHAT} from {tunein|FROM} in {kitchen|WHERE}
+PlaySonos to play {a song|WHAT} from {sonos|FROM} in {kitchen|WHERE}
+PlaySonos play {a song|WHAT} from {sonos|FROM} in {kitchen|WHERE}
+PlaySonos to play {beatles|WHAT} from {sonos|FROM} in {kitchen|WHERE}
+PlaySonos play {beatles|WHAT} from {sonos|FROM} in {kitchen|WHERE}
+PlaySonos to play {a song|WHAT} from {spotify|FROM} in {livingroom|WHERE}
+PlaySonos play {a song|WHAT} from {spotify|FROM} in {livingroom|WHERE}
+PlaySonos to play {beatles|WHAT} from {spotify|FROM} in {livingroom|WHERE}
+PlaySonos play {beatles|WHAT} from {spotify|FROM} in {livingroom|WHERE}
+PlaySonos to play {a song|WHAT} from {tunein|FROM} in {livingroom|WHERE}
+PlaySonos play {a song|WHAT} from {tunein|FROM} in {livingroom|WHERE}
+PlaySonos to play {beatles|WHAT} from {tunein|FROM} in {livingroom|WHERE}
+PlaySonos play {beatles|WHAT} from {tunein|FROM} in {livingroom|WHERE}
+PlaySonos to play {a song|WHAT} from {sonos|FROM} in {livingroom|WHERE}
+PlaySonos play {a song|WHAT} from {sonos|FROM} in {livingroom|WHERE}
+PlaySonos to play {beatles|WHAT} from {sonos|FROM} in {livingroom|WHERE}
+PlaySonos play {beatles|WHAT} from {sonos|FROM} in {livingroom|WHERE}
+PlaySonos to play {a song|WHAT} from {spotify|FROM} in {bathroom|WHERE}
+PlaySonos play {a song|WHAT} from {spotify|FROM} in {bathroom|WHERE}
+PlaySonos to play {beatles|WHAT} from {spotify|FROM} in {bathroom|WHERE}
+PlaySonos play {beatles|WHAT} from {spotify|FROM} in {bathroom|WHERE}
+PlaySonos to play {a song|WHAT} from {tunein|FROM} in {bathroom|WHERE}
+PlaySonos play {a song|WHAT} from {tunein|FROM} in {bathroom|WHERE}
+PlaySonos to play {beatles|WHAT} from {tunein|FROM} in {bathroom|WHERE}
+PlaySonos play {beatles|WHAT} from {tunein|FROM} in {bathroom|WHERE}
+PlaySonos to play {a song|WHAT} from {sonos|FROM} in {bathroom|WHERE}
+PlaySonos play {a song|WHAT} from {sonos|FROM} in {bathroom|WHERE}
+PlaySonos to play {beatles|WHAT} from {sonos|FROM} in {bathroom|WHERE}
+PlaySonos play {beatles|WHAT} from {sonos|FROM} in {bathroom|WHERE}
+PlaySonos start {office|WHERE}
+PlaySonos start {kitchen|WHERE}
+PlaySonos start {livingroom|WHERE}
+PlaySonos start {bathroom|WHERE}

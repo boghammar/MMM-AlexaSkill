@@ -48,6 +48,7 @@ app.intent('PlaySonos',
             }*/
         });
         //res.say('Ok. Playing ' + what + ' in ' + where + '.');
+        return false; // See example lambda.js in alexa-app (has something to do with async handler)
     }
 );
 

@@ -8,6 +8,7 @@ yarn-error.log*
 # Ignore the certs directory where teh secrets are copied by the prepareDeploy script
 certs/
 *.zip
+.vscode/
 
 # Runtime data
 pids

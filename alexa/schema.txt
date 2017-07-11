@@ -1,0 +1,21 @@
+{
+   "intents": [
+      {
+         "intent": "PlaySonos",
+         "slots": [
+            {
+               "name": "WHAT",
+               "type": "LITERAL"
+            },
+            {
+               "name": "FROM",
+               "type": "LITERAL"
+            },
+            {
+               "name": "WHERE",
+               "type": "LITERAL"
+            }
+         ]
+      }
+   ]
+}

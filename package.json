@@ -2,9 +2,10 @@
   "name": "mmmalexaskill",
   "version": "1.0.0",
   "description": "An Alexa skill using alexa-app and AWS IOT to control MagicMirror and other stuff :)",
-  "main": "index.js",
+  "main": "createUtterances.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "schema": "node createUtterances.js"
   },
   "repository": {
     "type": "git",
@@ -19,13 +20,14 @@
   "license": "MIT",
   "alexa": {
     "applicationId": "amzn1.ask.skill.b85685a4-487e-4400-ba82-5691285d73c0",
-    "configPath": "C:/_data/anders/dev/certs"
+    "configPath": "C:/_data/dev/certs"
   },
   "bugs": {
     "url": "https://github.com/boghammar/MMM-AlexaSkill/issues"
   },
   "homepage": "https://github.com/boghammar/MMM-AlexaSkill#readme",
   "dependencies": {
+    "alexa-app": "^4.0.1",
     "alexa-sdk": "^1.0.11",
     "aws-iot-device-sdk": "^2.0.0",
     "node-zip": "^1.1.1"
