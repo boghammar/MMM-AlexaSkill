@@ -78,6 +78,27 @@ app.stop = function (where, callback) {
     }
 }
 
+// ----- Handle a stop request from Alexa
+app.next = function (where, callback) {
+    console.log("iotgateway: Got NextSonos Where="+where);
+    var data = {
+        'module': 'SonosPlay',
+        'body': {
+            'action': 'next',
+            'where': where
+        }
+    };
+    console.log("iotgateway: publish " + app.TOPIC_PLAY+ " Data="+JSON.stringify(data));
+    try {
+        app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {
+            console.log('Published topic: '+ app.TOPIC_PLAY + ' Data: '+ JSON.stringify(data));
+            callback();
+        });
+    } catch (err) {
+        console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+    }
+}
+
 // ----- Handle a play request from Alexa
 app.play = function (what, from, where, callback) {
     console.log("iotgateway: Got PlaySonos What="+what + " From="+from + " Where="+where);

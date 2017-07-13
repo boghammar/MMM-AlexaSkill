@@ -34,6 +34,15 @@
                "type": "LITERAL"
             }
          ]
+      },
+      {
+         "intent": "NextSonos",
+         "slots": [
+            {
+               "name": "WHERE",
+               "type": "LITERAL"
+            }
+         ]
       }
    ]
 }

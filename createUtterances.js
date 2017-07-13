@@ -38,6 +38,15 @@ app.intent("StopSonos",
     }, function(req, res) {}
 );
 
+app.intent("NextSonos",
+    {
+        'slots': {'WHERE': 'LITERAL'},
+        'utterances': [
+            '{play|} {next|skip} {in|} {places|WHERE}'
+        ]         
+    }, function(req, res) {}
+);
+
 app.exhaustiveUtterances = true;
 console.log('\nSCHEMA:');
 var schema = app.schema();

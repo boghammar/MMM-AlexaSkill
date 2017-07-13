@@ -91,6 +91,22 @@ var handlers = {
             self.emit(':tellWithCard', self.t("PLAY_SONOS", answer), self.t("PLAY_SONOS_CARD"), answer);
         });
     },
+    'NextSonos': function () {
+        var self = this;
+        let where = this.event.request.intent.slots.WHERE.value;
+        console.log("index.js: Got NextSonos Where=" + where);
+        mirror.next(where, function(err) {
+            if (err) {
+                console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+                var errorStr = self.t("PLAY_SONOS_ERR", JSON.stringify(err));
+                self.emit(':askWithCard', errorStr, errorStr, self.t("ERROR_CARD"), errorStr)
+                return;
+            }
+            console.log("index.js: Have sent the request NextSonos Where=" + where);
+            var answer = "Ok. Playing next in " + where +"."
+            self.emit(':tellWithCard', self.t("PLAY_SONOS", answer), self.t("PLAY_SONOS_CARD"), answer);
+        });
+    },
     'PlaySonos': function () {
         var self = this;
         let what = this.event.request.intent.slots.WHAT.value;

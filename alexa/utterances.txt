@@ -142,3 +142,35 @@ StopSonos	to stop {bathroom|WHERE}
 StopSonos	stop {bathroom|WHERE}
 StopSonos	to halt {bathroom|WHERE}
 StopSonos	halt {bathroom|WHERE}
+NextSonos	play next in {office|WHERE}
+NextSonos	next in {office|WHERE}
+NextSonos	play skip in {office|WHERE}
+NextSonos	skip in {office|WHERE}
+NextSonos	play next {office|WHERE}
+NextSonos	next {office|WHERE}
+NextSonos	play skip {office|WHERE}
+NextSonos	skip {office|WHERE}
+NextSonos	play next in {kitchen|WHERE}
+NextSonos	next in {kitchen|WHERE}
+NextSonos	play skip in {kitchen|WHERE}
+NextSonos	skip in {kitchen|WHERE}
+NextSonos	play next {kitchen|WHERE}
+NextSonos	next {kitchen|WHERE}
+NextSonos	play skip {kitchen|WHERE}
+NextSonos	skip {kitchen|WHERE}
+NextSonos	play next in {livingroom|WHERE}
+NextSonos	next in {livingroom|WHERE}
+NextSonos	play skip in {livingroom|WHERE}
+NextSonos	skip in {livingroom|WHERE}
+NextSonos	play next {livingroom|WHERE}
+NextSonos	next {livingroom|WHERE}
+NextSonos	play skip {livingroom|WHERE}
+NextSonos	skip {livingroom|WHERE}
+NextSonos	play next in {bathroom|WHERE}
+NextSonos	next in {bathroom|WHERE}
+NextSonos	play skip in {bathroom|WHERE}
+NextSonos	skip in {bathroom|WHERE}
+NextSonos	play next {bathroom|WHERE}
+NextSonos	next {bathroom|WHERE}
+NextSonos	play skip {bathroom|WHERE}
+NextSonos	skip {bathroom|WHERE}
