@@ -16,6 +16,24 @@
                "type": "LITERAL"
             }
          ]
+      },
+      {
+         "intent": "ResumeSonos",
+         "slots": [
+            {
+               "name": "WHERE",
+               "type": "LITERAL"
+            }
+         ]
+      },
+      {
+         "intent": "StopSonos",
+         "slots": [
+            {
+               "name": "WHERE",
+               "type": "LITERAL"
+            }
+         ]
       }
    ]
 }

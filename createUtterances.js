@@ -15,8 +15,25 @@ app.intent("PlaySonos",
     {
         'slots': {'WHAT': 'LITERAL', 'FROM': 'LITERAL', 'WHERE': 'LITERAL'},
         'utterances': [
-            '{to|} play {a song|beatles|WHAT} from {sources|FROM} in {places|WHERE}', 
-            'start {places|WHERE}'
+            '{to|} play {a song|beatles|WHAT} from {sources|FROM} in {places|WHERE}'
+        ]         
+    }, function(req, res) {}
+);
+
+app.intent("ResumeSonos",
+    {
+        'slots': {'WHERE': 'LITERAL'},
+        'utterances': [
+            '{to|} {resume|start} {in|} {places|WHERE}'
+        ]         
+    }, function(req, res) {}
+);
+
+app.intent("StopSonos",
+    {
+        'slots': {'WHERE': 'LITERAL'},
+        'utterances': [
+            '{to|} {stop|halt} {playing|} {in|} {places|WHERE}'
         ]         
     }, function(req, res) {}
 );

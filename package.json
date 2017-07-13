@@ -5,7 +5,8 @@
   "main": "createUtterances.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "schema": "node createUtterances.js"
+    "schema": "node createUtterances.js",
+    "deploy": "node prepareDeploy.js"
   },
   "repository": {
     "type": "git",

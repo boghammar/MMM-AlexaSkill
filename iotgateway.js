@@ -36,12 +36,55 @@ app.setup = function (cfg) {
     }
 }
 
+// ----- Handle a resume request from Alexa
+app.resume = function (where, callback) {
+    console.log("iotgateway: Got ResumeSonos Where="+where);
+    var data = {
+        'module': 'SonosPlay',
+        'body': {
+            'action': 'resume',
+            'where': where
+        }
+    };
+    console.log("iotgateway: publish " + app.TOPIC_PLAY+ " Data="+JSON.stringify(data));
+    try {
+        app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {
+            console.log('Published topic: '+ app.TOPIC_PLAY + ' Data: '+ JSON.stringify(data));
+            callback();
+        });
+    } catch (err) {
+        console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+    }
+}
+
+// ----- Handle a stop request from Alexa
+app.stop = function (where, callback) {
+    console.log("iotgateway: Got StopSonos Where="+where);
+    var data = {
+        'module': 'SonosPlay',
+        'body': {
+            'action': 'stop',
+            'where': where
+        }
+    };
+    console.log("iotgateway: publish " + app.TOPIC_PLAY+ " Data="+JSON.stringify(data));
+    try {
+        app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {
+            console.log('Published topic: '+ app.TOPIC_PLAY + ' Data: '+ JSON.stringify(data));
+            callback();
+        });
+    } catch (err) {
+        console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+    }
+}
+
 // ----- Handle a play request from Alexa
 app.play = function (what, from, where, callback) {
     console.log("iotgateway: Got PlaySonos What="+what + " From="+from + " Where="+where);
     var data = {
         'module': 'SonosPlay',
         'body': {
+            'action': 'play',
             'what': what,
             'from': from,
             'where': where

@@ -59,6 +59,38 @@ var handlers = {
     'StopCommand': function () {
         this.emit(':tellWithCard', this.t("STOP_MESSAGE"), this.t("STOP_CARD"), this.t("STOP_MESSAGE"));
     },
+    'StopSonos': function () {
+        var self = this;
+        let where = this.event.request.intent.slots.WHERE.value;
+        console.log("index.js: Got StopSonos Where=" + where);
+        mirror.stop(where, function(err) {
+            if (err) {
+                console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+                var errorStr = self.t("PLAY_SONOS_ERR", JSON.stringify(err));
+                self.emit(':askWithCard', errorStr, errorStr, self.t("ERROR_CARD"), errorStr)
+                return;
+            }
+            console.log("index.js: Have sent the request StopSonos Where=" + where);
+            var answer = "Ok. Stopping in " + where +"."
+            self.emit(':tellWithCard', self.t("PLAY_SONOS", answer), self.t("PLAY_SONOS_CARD"), answer);
+        });
+    },
+    'ResumeSonos': function () {
+        var self = this;
+        let where = this.event.request.intent.slots.WHERE.value;
+        console.log("index.js: Got ResumeSonos Where=" + where);
+        mirror.resume(where, function(err) {
+            if (err) {
+                console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+                var errorStr = self.t("PLAY_SONOS_ERR", JSON.stringify(err));
+                self.emit(':askWithCard', errorStr, errorStr, self.t("ERROR_CARD"), errorStr)
+                return;
+            }
+            console.log("index.js: Have sent the request ResumeSonos Where=" + where);
+            var answer = "Ok. Resuming in " + where +"."
+            self.emit(':tellWithCard', self.t("PLAY_SONOS", answer), self.t("PLAY_SONOS_CARD"), answer);
+        });
+    },
     'PlaySonos': function () {
         var self = this;
         let what = this.event.request.intent.slots.WHAT.value;
