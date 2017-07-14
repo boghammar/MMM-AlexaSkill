@@ -124,13 +124,42 @@ var handlers = {
             console.log("index.js: Have sent the request PlaySonos What=" + what + " Where=" + where);
             var answer = "Ok. Playing " + what + " from " + from+ " in " + where +"."
             self.emit(':tellWithCard', self.t("PLAY_SONOS", answer), self.t("PLAY_SONOS_CARD"), answer);
-            //res.say('Ok. Done and done.');
-            /*if (what === undefined || what == '') {
-                res.say('Ok. Resuming in ' + where + '.');
-            } else {
-                res.say('Ok. Playing ' + what + ' in ' + where + '.');
-            }*/
         });
-        //res.say('Ok. Playing ' + what + ' in ' + where + '.');
+    },
+    // --------------------------------------------------
+    // Video handling
+    // --------------------------------------------------
+    'PlayVideo': function () {
+        var self = this;
+        let index = this.event.request.intent.slots.IX.value;
+        console.log("index.js: Got PlayVideo Index=" + index);
+        mirror.playVideo(index, function (err) {
+            if (err) {
+                console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+                var errorStr = self.t("PLAY_SONOS_ERR", JSON.stringify(err));
+                self.emit(':askWithCard', errorStr, errorStr, self.t("ERROR_CARD"), errorStr)
+                //res.say('Could not comply with that. Sorry.');
+                return;
+            }
+            console.log("index.js: Have sent the request PlayVideo Index=" + index);
+            var answer = "Ok. Playing video number " + index +"."
+            self.emit(':tellWithCard', self.t("PLAY_SONOS", answer), self.t("PLAY_SONOS_CARD"), answer);
+        });
+    },
+    'StopVideo': function () {
+        var self = this;
+        console.log("index.js: Got StopVideo");
+        mirror.stopVideo(function (err) {
+            if (err) {
+                console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
+                var errorStr = self.t("PLAY_SONOS_ERR", JSON.stringify(err));
+                self.emit(':askWithCard', errorStr, errorStr, self.t("ERROR_CARD"), errorStr)
+                //res.say('Could not comply with that. Sorry.');
+                return;
+            }
+            console.log("index.js: Have sent the request StopVideo");
+            var answer = "Ok. Video playback is stopped."
+            self.emit(':tellWithCard', self.t("PLAY_SONOS", answer), self.t("PLAY_SONOS_CARD"), answer);
+        });
     }
 };

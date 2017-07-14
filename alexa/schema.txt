@@ -18,6 +18,18 @@
          ]
       },
       {
+         "intent": "PlayVideo",
+         "slots": [
+            {
+               "name": "IX",
+               "type": "AMAZON.NUMBER"
+            }
+         ]
+      },
+      {
+         "intent": "StopVideo"
+      },
+      {
          "intent": "ResumeSonos",
          "slots": [
             {

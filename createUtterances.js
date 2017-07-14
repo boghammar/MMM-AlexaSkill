@@ -20,6 +20,23 @@ app.intent("PlaySonos",
     }, function(req, res) {}
 );
 
+app.intent("PlayVideo",
+    {
+        'slots': {'IX': 'AMAZON.NUMBER'},
+        'utterances': [
+            '{to|} play video {number|} {-|IX}'
+        ]         
+    }, function(req, res) {}
+);
+
+app.intent("StopVideo",
+    {
+        'utterances': [
+            '{to|} stop {playing|} video'
+        ]         
+    }, function(req, res) {}
+);
+
 app.intent("ResumeSonos",
     {
         'slots': {'WHERE': 'LITERAL'},

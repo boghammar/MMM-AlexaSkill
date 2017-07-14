@@ -7,6 +7,7 @@ var awsIot = require('aws-iot-device-sdk');
 var app = {};
 
 app.TOPIC_PLAY = "MagicMirror:Play";
+app.TOPIC_PLAYVIDEO = "PLAYVIDEO";
 
 // ------- Setup the IOT Gateway
 app.setup = function (cfg) {
@@ -46,15 +47,7 @@ app.resume = function (where, callback) {
             'where': where
         }
     };
-    console.log("iotgateway: publish " + app.TOPIC_PLAY+ " Data="+JSON.stringify(data));
-    try {
-        app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {
-            console.log('Published topic: '+ app.TOPIC_PLAY + ' Data: '+ JSON.stringify(data));
-            callback();
-        });
-    } catch (err) {
-        console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
-    }
+    app.publish(app.TOPIC_PLAY, data, callback);
 }
 
 // ----- Handle a stop request from Alexa
@@ -67,15 +60,7 @@ app.stop = function (where, callback) {
             'where': where
         }
     };
-    console.log("iotgateway: publish " + app.TOPIC_PLAY+ " Data="+JSON.stringify(data));
-    try {
-        app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {
-            console.log('Published topic: '+ app.TOPIC_PLAY + ' Data: '+ JSON.stringify(data));
-            callback();
-        });
-    } catch (err) {
-        console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
-    }
+    app.publish(app.TOPIC_PLAY, data, callback);
 }
 
 // ----- Handle a stop request from Alexa
@@ -88,15 +73,7 @@ app.next = function (where, callback) {
             'where': where
         }
     };
-    console.log("iotgateway: publish " + app.TOPIC_PLAY+ " Data="+JSON.stringify(data));
-    try {
-        app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {
-            console.log('Published topic: '+ app.TOPIC_PLAY + ' Data: '+ JSON.stringify(data));
-            callback();
-        });
-    } catch (err) {
-        console.log("AlexaComms - SERVICE_FAILURE: " + JSON.stringify(err), err);
-    }
+    app.publish(app.TOPIC_PLAY, data, callback);
 }
 
 // ----- Handle a play request from Alexa
@@ -111,10 +88,42 @@ app.play = function (what, from, where, callback) {
             'where': where
         }
     };
-    console.log("iotgateway: publish " + app.TOPIC_PLAY+ " Data="+JSON.stringify(data));
+    app.publish(app.TOPIC_PLAY, data, callback);
+}
+
+// ----- Handle a play video request from Alexa
+app.playVideo = function (index, callback) {
+    console.log("iotgateway: Got PlayVideo Index="+index);
+    var data = {
+        'module': 'MMM-Video',
+        'body': {
+            'action': 'play',
+            'video': {
+                'ix': index
+            }
+        }
+    };
+    app.publish(app.TOPIC_PLAYVIDEO, data, callback);
+}
+
+// ----- Handle a stop video request from Alexa
+app.stopVideo = function (callback) {
+    console.log("iotgateway: Got StopVideo");
+    var data = {
+        'module': 'MMM-Video',
+        'body': {
+            'action': 'stop'
+        }
+    };
+    app.publish(app.TOPIC_PLAYVIDEO, data, callback);
+}
+
+// ----- Handle a play video request from Alexa
+app.publish = function(topic, data, callback) {
+    console.log("iotgateway: publish " + topic+ " Data="+JSON.stringify(data));
     try {
-        app.device.publish(app.TOPIC_PLAY, JSON.stringify(data), function() {
-            console.log('Published topic: '+ app.TOPIC_PLAY + ' Data: '+ JSON.stringify(data));
+        app.device.publish(topic, JSON.stringify(data), function() {
+            console.log('Published topic: '+ topic + ' Data: '+ JSON.stringify(data));
             callback();
         });
     } catch (err) {

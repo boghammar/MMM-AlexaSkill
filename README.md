@@ -21,6 +21,7 @@ The main features that I developed this skill for was:
 ## Configure your skill
 
 ## Deploy your code to AWS Lambda
+### Preparing the zip file
 Since this skill relies on AWS IOT to communicate with the Magic Mirror you need to deploy your certificates along with the code when deploying to AWS Lambda. For that purpose use the utility `prepareDeploy.js` to pack the correct files for deployment. What this utility does is
 
 1. Find out the secret directory by reading the Alexa.configPath in the package.js file.
@@ -40,11 +41,14 @@ module.exports = cfg;
 
 The resulting zip file can then be uploaded using the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home).
 
+### Create intents and utterances
+The utility `createUtterances.js` is used to create the files `alexa/schema.txt`and `alexa/utterances.txt`. The contents of these files can be pasted into the appropriate windows in the [Amazon Alexa Skill configuration](https://developer.amazon.com/edw/home.html#/skills).
+
 ## Message format 
 The messages sent from the skill to the IOT device have the following format:
 ```json
 {
-    "module": "nameof module",
+    "module": "nameofmodule",
     "body": {
         // Module specific module data
     }
@@ -55,8 +59,22 @@ for instance the SonosPlay module takes this message
 {
     "module": "SonosPlay",
     "body": {
+        "action": "play",
         "what": "beatles",
+        "from": "spotify",
         "where": "kitchen"
+    }
+}
+```
+the MMM-Video module takes this message
+```json
+{
+    "module": "MMM-Video",
+    "body": {
+        "action": "play",
+        "video": {
+            "ix": 0
+        }
     }
 }
 ```
